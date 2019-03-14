@@ -1,8 +1,19 @@
 rect {
-    fill: rgb(170, 170, 170)
+    fill: rgb(170, 170, 170);
+}
+body {
+    background-image: url('https://images.wallpaperscraft.com/image/starry_sky_night_trees_night_landscape_118760_1920x1080.jpg');
+}
+.header {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+}
+.footer {
+    background-color: rgb(160, 160, 160, .7);
 }
 svg {
-    background-color: rgb(190, 190, 190)
+    background-color: rgb(190, 190, 190, .7);
 }
 .bead {
     -webkit-filter: drop-shadow( 3px 3px 4px rgba(0, 0, 0, .5));

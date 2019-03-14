@@ -1,18 +1,21 @@
 function main() {
     let beadWidth = 40
     let beadHeight = 40
-    let margin = { top: 20, right: 20, left: 20, inbetween: 20 }
+    let barHeight = 20
+    let margin = { top: 60, right: 20, left: 20, bottom: 20, inbetween: 20 }
     let columns = 12
     let gRows = 4
     let width = columns * (beadWidth + margin.inbetween) + margin.left
-    let height = 470
+    let height = (beadHeight + margin.inbetween) * 7  + barHeight + margin.top + margin.bottom
     let blueBeads = [0, 1, 2, 6, 7, 8]
 
     let abacusSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
     let counter = document.createElement('div')
     
     counter.setAttribute('id', 'counter')
+    counter.setAttribute('class', 'footer')
     abacusSVG.setAttribute('id', 'abacusSVG')
+    abacusSVG.setAttribute('class', 'header')
     abacusSVG.setAttribute('height', height)
     abacusSVG.setAttribute('width', width)
     
@@ -20,7 +23,7 @@ function main() {
     document.body.appendChild(counter)
 
     //Crossbar
-    abacusSVG.innerHTML += `<rect id='crossbar' width='${width}' height='20' x='0' y='${margin.top + (beadHeight) * 2 + margin.inbetween * 2}'></rect>`
+    abacusSVG.innerHTML += `<rect id='crossbar' width='${width}' height='${barHeight}' x='0' y='${margin.top + (beadHeight) * 2 + margin.inbetween * 2}'></rect>`
     //Heaven beads
     for (let i = 0; i < columns; i++) {
         abacusSVG.innerHTML += `<rect id='hBead${i}' class='hBead bead' state='0' width='${beadWidth}' height='${beadHeight}' x='${i * (beadWidth + margin.inbetween) + margin.left}' y='${margin.top}'></rect>`
@@ -28,7 +31,7 @@ function main() {
     //Ground beads
     for (let i = 0; i < gRows; i++) {
         for (let n = 0; n < columns; n++) {
-            abacusSVG.innerHTML += `<rect id='gBead${n}_${i}' class='gBead bead' state='0' width='${beadWidth}' height='${beadHeight}' x='${n * (beadWidth + margin.inbetween) + margin.left}' y='${(i + 1) * (beadHeight + margin.inbetween) + document.getElementById('crossbar').getBoundingClientRect().bottom}'></rect>`
+            abacusSVG.innerHTML += `<rect id='gBead${n}_${i}' class='gBead bead' state='0' width='${beadWidth}' height='${beadHeight}' x='${n * (beadWidth + margin.inbetween) + margin.left}' y='${(i + 1) * (beadHeight + margin.inbetween) + margin.top + (beadHeight) * 2 + margin.inbetween * 4}'></rect>`
         }
     }
 
