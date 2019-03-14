@@ -1,0 +1,10 @@
+rect {
+    fill: rgb(170, 170, 170)
+}
+svg {
+    background-color: rgb(190, 190, 190)
+}
+.bead {
+    -webkit-filter: drop-shadow( 3px 3px 4px rgba(0, 0, 0, .5));
+    filter: drop-shadow( 3px 3px 4px rgba(0, 0, 0, .5));
+}
